@@ -1,0 +1,34 @@
+---
+title: "Fars Vignette"
+author: "Javier Arias"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Fars Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The fars package makes working with FARS data very easy.
+
+## Data
+
+The package includes data from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes, for the years 2013, 2014 and 2015.
+
+## Single table verbs
+
+- `fars_read()` to read .csv files.
+- `make_filename()` to get a string with the format name.
+- `fars_read_years()` to get a list of data frames.
+- `fars_summarize_years()` to get a list of data frames with the data summarized.
+- `fars_map_state()` to create a map of fars events given the state and the year.
+
+
+
