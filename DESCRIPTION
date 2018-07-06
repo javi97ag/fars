@@ -13,4 +13,7 @@ Suggests: knitr,
     testthat
 VignetteBuilder: knitr
 Imports: dplyr,
-         maps
+         maps,
+         readr,
+         tidyr,
+         graphics
