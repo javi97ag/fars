@@ -12,4 +12,5 @@ Suggests: knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-Imports: dplyr
+Imports: dplyr,
+         maps
