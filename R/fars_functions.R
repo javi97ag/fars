@@ -33,7 +33,6 @@ make_filename <- function(year) {
 #' This function reads a list of years and returns a list of data.frames.
 
 #' @param years an integer
-#' @param MONTH an integer
 #' @return This function returs a list of data.frames
 #' @importFrom dplyr mutate select %>%
 #' @examples
@@ -57,9 +56,6 @@ fars_read_years <- function(years) {
 
 
 #' @param years an integer
-#' @param year an integer
-#' @param MONTH an integer
-#' @param n an integer
 #' @return This function returs a list of data.frames with the data summarized
 #' @importFrom dplyr bind_rows group_by summarize %>%
 #' @importFrom tidyr spread
@@ -79,7 +75,6 @@ fars_summarize_years <- function(years) {
 
 #' @param state.num is an integer
 #' @param year an integer
-#' @param STATE a character string
 #' @return This functions returs a map with a point in every place there has been a fatality in a motor vehicle accident
 #' @importFrom dplyr filter
 #' @importFrom maps map

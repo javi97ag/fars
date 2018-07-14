@@ -10,8 +10,6 @@ fars_map_state(state.num, year)
 \item{state.num}{is an integer}
 
 \item{year}{an integer}
-
-\item{STATE}{a character string}
 }
 \value{
 This functions returs a map with a point in every place there has been a fatality in a motor vehicle accident

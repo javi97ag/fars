@@ -8,12 +8,6 @@ fars_summarize_years(years)
 }
 \arguments{
 \item{years}{an integer}
-
-\item{year}{an integer}
-
-\item{MONTH}{an integer}
-
-\item{n}{an integer}
 }
 \value{
 This function returs a list of data.frames with the data summarized
