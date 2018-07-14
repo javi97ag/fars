@@ -30,11 +30,12 @@ make_filename <- function(year) {
         sprintf("accident_%d.csv.bz2", year)
 }
 
-#' This function reads a list of years and returns a list of data.frames. 
+#' This function reads a list of years and returns a list of data.frames.
 
 #' @param years an integer
+#' @param MONTH an integer
 #' @return This function returs a list of data.frames
-#' @importFrom dplyr mutate select
+#' @importFrom dplyr mutate select %>%
 #' @examples
 #' \dontrun{fars_read_years(c(2013,2014))}
 #' @export
@@ -43,7 +44,7 @@ fars_read_years <- function(years) {
                 file <- make_filename(year)
                 tryCatch({
                         dat <- fars_read(file)
-                        dplyr::mutate(dat, year = year) %>% 
+                        dplyr::mutate(dat, year = year) %>%
                                 dplyr::select(MONTH, year)
                 }, error = function(e) {
                         warning("invalid year: ", year)
@@ -56,16 +57,19 @@ fars_read_years <- function(years) {
 
 
 #' @param years an integer
+#' @param year an integer
+#' @param MONTH an integer
+#' @param n an integer
 #' @return This function returs a list of data.frames with the data summarized
-#' @importFrom dplyr bind_rows group_by summarize
+#' @importFrom dplyr bind_rows group_by summarize %>%
 #' @importFrom tidyr spread
 #' @examples
 #' \dontrun{fars_summarize_years(c(2013,2014))}
 #' @export
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
-        dplyr::bind_rows(dat_list) %>% 
-                dplyr::group_by(year, MONTH) %>% 
+        dplyr::bind_rows(dat_list) %>%
+                dplyr::group_by(year, MONTH) %>%
                 dplyr::summarize(n = n()) %>%
                 tidyr::spread(year, n)
 }
@@ -75,6 +79,7 @@ fars_summarize_years <- function(years) {
 
 #' @param state.num is an integer
 #' @param year an integer
+#' @param STATE a character string
 #' @return This functions returs a map with a point in every place there has been a fatality in a motor vehicle accident
 #' @importFrom dplyr filter
 #' @importFrom maps map
